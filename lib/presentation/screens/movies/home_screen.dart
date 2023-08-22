@@ -35,22 +35,17 @@ class _HomeViewState extends ConsumerState<_HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    // if (nowPlayingMovies.isEmpty) {
-    //   return const Column(
-    //     mainAxisAlignment: MainAxisAlignment.center,
-    //     crossAxisAlignment: CrossAxisAlignment.center,
-    //     children: [
-    //       CircularProgressIndicator(),
-    //       Text('Cargando películas...'),
-    //     ],
-    //   );
-    // }
 
+    final initialLoading = ref.watch(initialLoadingProvier);
+
+    if(initialLoading) return const FullScreenLoader();
+    
     final slideShowMovies = ref.watch(moviesSlideshowProvider);
     final nowPlayingMovies = ref.watch(nowPlayingMoviesProvider);
     final popularMovies = ref.watch(popularMoviesProvider);
     final topRatedMovies = ref.watch(topRatedMoviesProvider);
     final upcomingMovies = ref.watch(upcomingMoviesProvider);
+
     return CustomScrollView(slivers: [
       const SliverAppBar(
         floating: true,
