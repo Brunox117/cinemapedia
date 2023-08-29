@@ -11,3 +11,4 @@ class HumanFormats{
     return formatterNumber;
   }
 }
+
