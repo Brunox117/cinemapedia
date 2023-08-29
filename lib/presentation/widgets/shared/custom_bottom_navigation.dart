@@ -1,36 +1,17 @@
-import 'package:cinemapedia/presentation/providers/other/bottom_navigation_selected.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class CustomBottomNavigation extends ConsumerWidget {
-  const CustomBottomNavigation({super.key});
-
-  void onItemTapped(BuildContext context, int index) {
-    switch (index) {
-      case 0:
-        context.go('/');
-        break;
-      case 1:
-        context.go('/');
-        break;
-      case 2:
-        context.go('/favorites');
-        break;
-    }
-  }
+class CustomBottomNavigation extends StatelessWidget {
+  final StatefulNavigationShell currentChild;
+  const CustomBottomNavigation({super.key, required this.currentChild});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final int currentIndex = ref.watch(bottomBarSelected);
+  Widget build(BuildContext context) {
     return BottomNavigationBar(
         elevation: 0,
         enableFeedback: true,
-        currentIndex: currentIndex,
-        onTap: (value) {
-          onItemTapped(context, value);
-          ref.read(bottomBarSelected.notifier).update((state) => value);
-        },
+        currentIndex: currentChild.currentIndex,
+        onTap: (value) => currentChild.goBranch(value),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_max), label: 'Inicio'),
           BottomNavigationBarItem(
