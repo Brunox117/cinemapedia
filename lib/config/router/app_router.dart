@@ -1,13 +1,13 @@
 import 'package:cinemapedia/presentation/screens/screens.dart';
-import 'package:cinemapedia/presentation/views/home_views/populars_view.dart';
-import 'package:cinemapedia/presentation/views/home_views/tv_shows_view.dart';
 import 'package:cinemapedia/presentation/views/views.dart';
 import 'package:go_router/go_router.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: [
+  
   StatefulShellRoute.indexedStack(
-      builder: (_, __, navigationShell) =>
-          HomeScreen(currentChild: navigationShell,),
+      builder: (_, __, navigationShell) => HomeScreen(
+            currentChild: navigationShell,
+          ),
       branches: <StatefulShellBranch>[
         StatefulShellBranch(routes: [
           GoRoute(
@@ -23,6 +23,17 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
                     final movieId = state.pathParameters['id'] ?? 'no-id';
                     return MovieScreen(
                       movieId: movieId,
+                    );
+                  },
+                ),
+                GoRoute(
+                  
+                  path: 'moviesCategory/:category',
+                  builder: (context, state) {
+                    final category =
+                        state.pathParameters['category'] ?? 'no-category';
+                    return MoviesView(
+                      category: category,
                     );
                   },
                 ),
@@ -46,5 +57,3 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
         ]),
       ])
 ]);
-
- 

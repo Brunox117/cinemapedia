@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 class MoviesView extends StatelessWidget {
-  const MoviesView({super.key});
+  final String category;
+  const MoviesView({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-        Text('No implementado aun...')
+        Text('Desplegando la vista de $category...')
         ],
     );
   }

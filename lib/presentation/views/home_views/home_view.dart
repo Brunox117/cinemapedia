@@ -52,6 +52,7 @@ class HomeViewState extends ConsumerState<HomeView> {
               movies: nowPlayingMovies,
               title: 'En cines',
               subtitle: 'Ver más...',
+              category: 'nowPlayingMovies',
               loadNextPage: () {
                 ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
               },
@@ -60,6 +61,7 @@ class HomeViewState extends ConsumerState<HomeView> {
               movies: upcomingMovies,
               title: 'Próximamente',
               subtitle: 'Ver más...',
+              category: 'upcomingMovies',
               loadNextPage: () {
                 ref.read(upcomingMoviesProvider.notifier).loadNextPage();
               },
@@ -68,6 +70,7 @@ class HomeViewState extends ConsumerState<HomeView> {
               movies: popularMovies,
               title: 'Populares',
               subtitle: 'Ver más...',
+              category: 'popularMovies',
               loadNextPage: () {
                 ref.read(popularMoviesProvider.notifier).loadNextPage();
               },
@@ -76,6 +79,7 @@ class HomeViewState extends ConsumerState<HomeView> {
               movies: topRatedMovies,
               title: 'Mejor calificadas',
               subtitle: 'Ver más...',
+              category: 'topRatedMovies',
               loadNextPage: () {
                 ref.read(topRatedMoviesProvider.notifier).loadNextPage();
               },

@@ -8,6 +8,7 @@ class MovieHorizontalListview extends StatefulWidget {
   final List<Movie> movies;
   final String? title;
   final String? subtitle;
+  final String category;
   final VoidCallback? loadNextPage;
 
   const MovieHorizontalListview(
@@ -15,7 +16,7 @@ class MovieHorizontalListview extends StatefulWidget {
       required this.movies,
       this.title,
       this.subtitle,
-      this.loadNextPage});
+      this.loadNextPage, required this.category,});
 
   @override
   State<MovieHorizontalListview> createState() => _MovieHorizontalListviewState();
@@ -53,6 +54,7 @@ class _MovieHorizontalListviewState extends State<MovieHorizontalListview> {
             _Title(
               title: widget.title,
               subtitle: widget.subtitle,
+              category: widget.category,
             ),
           Expanded(
               child: ListView.builder(
@@ -154,7 +156,8 @@ class _Slide extends StatelessWidget {
 class _Title extends StatelessWidget {
   final String? title;
   final String? subtitle;
-  const _Title({this.title, this.subtitle});
+  final String category;
+  const _Title({this.title, this.subtitle, required this.category});
 
   @override
   Widget build(BuildContext context) {
@@ -172,7 +175,9 @@ class _Title extends StatelessWidget {
         if (subtitle != null)
           FilledButton.tonal(
               style: const ButtonStyle(visualDensity: VisualDensity.compact),
-              onPressed: () {},
+              onPressed: () {
+                context.push('/moviesCategory/$category');
+              },
               child: Text(subtitle!))
       ]),
     );
