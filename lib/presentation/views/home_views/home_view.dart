@@ -1,3 +1,4 @@
+import 'package:cinemapedia/config/helpers/enumerations/movies_categories_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/providers.dart';
@@ -52,7 +53,7 @@ class HomeViewState extends ConsumerState<HomeView> {
               movies: nowPlayingMovies,
               title: 'En cines',
               subtitle: 'Ver más...',
-              category: 'nowPlayingMovies',
+              category: MoviesCategoriesEnum.nowPlayingMovies.toString().split('.').last,
               loadNextPage: () {
                 ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
               },
@@ -61,7 +62,7 @@ class HomeViewState extends ConsumerState<HomeView> {
               movies: upcomingMovies,
               title: 'Próximamente',
               subtitle: 'Ver más...',
-              category: 'upcomingMovies',
+              category: MoviesCategoriesEnum.upcomingMovies.toString().split('.').last,
               loadNextPage: () {
                 ref.read(upcomingMoviesProvider.notifier).loadNextPage();
               },
@@ -70,7 +71,7 @@ class HomeViewState extends ConsumerState<HomeView> {
               movies: popularMovies,
               title: 'Populares',
               subtitle: 'Ver más...',
-              category: 'popularMovies',
+              category: MoviesCategoriesEnum.popularMovies.toString().split('.').last,
               loadNextPage: () {
                 ref.read(popularMoviesProvider.notifier).loadNextPage();
               },
@@ -79,7 +80,7 @@ class HomeViewState extends ConsumerState<HomeView> {
               movies: topRatedMovies,
               title: 'Mejor calificadas',
               subtitle: 'Ver más...',
-              category: 'topRatedMovies',
+              category: MoviesCategoriesEnum.topRatedMovies.toString().split('.').last,
               loadNextPage: () {
                 ref.read(topRatedMoviesProvider.notifier).loadNextPage();
               },
