@@ -16,6 +16,7 @@ class MovieMasonry extends StatefulWidget {
 class _MovieMasonryState extends State<MovieMasonry> {
   final scrollController = ScrollController();
 
+
   @override
   void initState() {
     super.initState();

@@ -70,6 +70,7 @@ class FavoritesViewState extends ConsumerState<FavoritesView> {
     }
     return MovieMasonry(
       movies: favoriteMovies,
+      
       loadNextPage: loadNextPage,
     );
   }
