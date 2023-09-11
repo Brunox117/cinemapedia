@@ -7,7 +7,7 @@
 - In [VSCODE](https://code.visualstudio.com) you can select a device to test the project using CTRL + SHIFT + P, then on the main.dart file press F5.
 
 
-# Dev
+## Dev
 
 1. Copiar el .env.template y renombrarlo a .env
 2. Cambiar las variables de entorno (TheMovieDB)
